@@ -1,0 +1,234 @@
+@font-face {
+  font-family: 'Feather Bold';
+  src: url('fonts/Feather-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+html { color-scheme: light only; }
+
+:root {
+  color-scheme: light only;
+  --rosa: #F2A7AD;
+  --laranja-escuro: #EF7211;
+  --azul-claro: #C2EDF2;
+  --amarelo: #F2A444;
+  --laranja-salmao: #F2B28D;
+  --vermelho: #D93636;
+  --laranja-dark: #C95C08;
+  --vermelho-dark: #B02626;
+  --azul-dark: #8EC2C9;
+  --green-correct: #48B832;
+  --green-correct-dark: #379425;
+
+  --text: #3C3C3C;
+  --text-light: #6b7280;
+  --bg: #F7F9FA;
+  --card: #FFFFFF;
+  --border: #E5E5E5;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+}
+
+#page {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 40px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+/* TOPBAR E BUSCA */
+#topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--card);
+  border-bottom: 2px solid var(--border);
+  padding: 15px 16px;
+}
+
+.topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.score-badge {
+  font-size: 15px;
+  background: #FFF5EA;
+  color: var(--laranja-escuro);
+  border: 2px solid var(--amarelo);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.score-badge:active { transform: scale(0.95); }
+
+#search-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color 0.2s ease;
+}
+#search-input:focus { border-color: var(--laranja-escuro); }
+
+/* ÍNDICE ALFABÉTICO (A-Z) */
+#alphabet-index {
+  position: absolute;
+  right: 6px;
+  top: 110px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  z-index: 5;
+}
+
+.alpha-letter {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-light);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.alpha-letter:hover, .alpha-letter.active {
+  color: #fff;
+  background: var(--laranja-escuro);
+}
+
+/* CONTEÚDO PRINCIPAL */
+main#content {
+  flex: 1;
+  padding: 20px 38px 20px 16px; /* Espaço à direita para o índice A-Z */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transform-style: preserve-3d;
+}
+
+/* ANIMAÇÃO DE VIRADA DE PÁGINA */
+.page-turn-anim {
+  animation: pageTurn 0.5s ease-in-out;
+}
+
+@keyframes pageTurn {
+  0% { transform: perspective(800px) rotateY(0deg); opacity: 1; }
+  50% { transform: perspective(800px) rotateY(90deg); opacity: 0; }
+  100% { transform: perspective(800px) rotateY(0deg); opacity: 1; }
+}
+
+/* CARDS DE DICIONÁRIO */
+.dict-card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dict-fr {
+  font-family: 'Feather Bold', 'Nunito', sans-serif;
+  font-size: 20px;
+  color: var(--laranja-escuro);
+}
+
+.dict-type {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-light);
+  background: #E5E7EB;
+  padding: 2px 8px;
+  border-radius: 8px;
+  align-self: flex-start;
+}
+
+.dict-pt {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.verb-btn {
+  background: var(--laranja-escuro);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--laranja-dark);
+}
+.verb-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 transparent; }
+
+/* TABELA DE CONJUGAÇÃO */
+.verb-table-container {
+  background: var(--card);
+  border: 2px solid var(--laranja-salmao);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.verb-table-header {
+  font-family: 'Feather Bold', 'Nunito', sans-serif;
+  font-size: 22px;
+  color: var(--vermelho);
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.conjugation-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+.conjugation-row:last-child { border-bottom: none; }
+
+.conj-pronoun { font-weight: 800; color: var(--text-light); width: 40%; }
+.conj-verb { font-weight: 700; color: var(--text); width: 60%; text-align: right; }
+
+.letter-header {
+  font-family: 'Feather Bold', 'Nunito', sans-serif;
+  font-size: 24px;
+  color: var(--azul-dark);
+  margin: 10px 0 5px;
+  text-transform: uppercase;
+}
