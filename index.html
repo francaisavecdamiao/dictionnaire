@@ -21,14 +21,19 @@
     </div>
     <input type="text" id="search-input" placeholder="Buscar palavra ou verbo..." autocomplete="off">
   </div>
-  
-  <div id="alphabet-index">
+
+  <div id="reader">
+    <!-- As páginas (dicionário ou conjugação) entram aqui -->
+    <main id="book"></main>
     <!-- As letras serão injetadas aqui pelo JS -->
+    <nav id="alphabet-index"></nav>
   </div>
 
-  <main id="content">
-    <!-- Os cards de dicionário ou tabelas de conjugação entrarão aqui -->
-  </main>
+  <footer id="pager">
+    <button class="pager-btn" id="prev-btn" onclick="prevPage()" aria-label="Página anterior">◀</button>
+    <span id="page-label">1 / 1</span>
+    <button class="pager-btn" id="next-btn" onclick="nextPage()" aria-label="Próxima página">▶</button>
+  </footer>
 </div>
 
 <script src="vocabulario.js"></script>
