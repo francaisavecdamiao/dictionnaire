@@ -1,5 +1,3 @@
-/* Base de Vocabulário Galolingo (Extraído do PDF) */
-
 const dicionario = [
   { fr: "à", pt: "em, para", type: "prép." },
   { fr: "accepter", pt: "aceitar", type: "v.", isVerb: true },
@@ -151,7 +149,6 @@ const dicionario = [
   { fr: "vraiment", pt: "realmente, de verdade", type: "adv." }
 ];
 
-/* Tabelas de Conjugação (Extraído do PDF) */
 const conjugacoes = {
   "accepter": ["accepte", "acceptes", "accepte", "acceptons", "acceptez", "acceptent"],
   "adorer": ["adore", "adores", "adore", "adorons", "adorez", "adorent"],
@@ -193,6 +190,49 @@ const conjugacoes = {
   "mettre la table": ["mets la table", "mets la table", "met la table", "mettons la table", "mettez la table", "mettent la table"],
   "s'amuser": ["m'amuse", "t'amuses", "s'amuse", "nous amusons", "vous amusez", "s'amusent"],
   "se coucher": ["me couche", "te couches", "se couche", "nous couchons", "vous couchez", "se couchent"]
+};
+
+const conjugacoesPt = {
+  "accepter": ["Eu aceito", "Tu aceitas / Você aceita", "Ele/Ela/A gente aceita", "Nós aceitamos", "Vocês aceitam / O senhor aceita / A senhora aceita", "Eles/Elas aceitam"],
+  "adorer": ["Eu adoro", "Tu adoras / Você adora", "Ele/Ela/A gente adora", "Nós adoramos", "Vocês adoram / O senhor adora / A senhora adora", "Eles/Elas adoram"],
+  "ajouter": ["Eu acrescento", "Tu acrescentas / Você acrescenta", "Ele/Ela/A gente acrescenta", "Nós acrescentamos", "Vocês acrescentam / O senhor acrescenta / A senhora acrescenta", "Eles/Elas acrescentam"],
+  "aimer": ["Eu amo/gosto", "Tu amas / Você ama", "Ele/Ela/A gente ama", "Nós amamos", "Vocês amam / O senhor ama / A senhora ama", "Eles/Elas amam"],
+  "arriver": ["Eu chego", "Tu chegas / Você chega", "Ele/Ela/A gente chega", "Nós chegamos", "Vocês chegam / O senhor chega / A senhora chega", "Eles/Elas chegam"],
+  "attraper": ["Eu pego", "Tu pegas / Você pega", "Ele/Ela/A gente pega", "Nós pegamos", "Vocês pegam / O senhor pega / A senhora pega", "Eles/Elas pegam"],
+  "briller": ["Eu brilho", "Tu brilhas / Você brilha", "Ele/Ela/A gente brilha", "Nós brilhamos", "Vocês brilham / O senhor brilha / A senhora brilha", "Eles/Elas brilham"],
+  "commencer": ["Eu começo", "Tu começas / Você começa", "Ele/Ela/A gente começa", "Nós começamos", "Vocês começam / O senhor começa / A senhora começa", "Eles/Elas começam"],
+  "demander": ["Eu pergunto", "Tu perguntas / Você pergunta", "Ele/Ela/A gente pergunta", "Nós perguntamos", "Vocês perguntam / O senhor pergunta / A senhora pergunta", "Eles/Elas perguntam"],
+  "découper": ["Eu recorto", "Tu recortas / Você recorta", "Ele/Ela/A gente recorta", "Nós recortamos", "Vocês recortam / O senhor recorta / A senhora recorta", "Eles/Elas recortam"],
+  "goûter": ["Eu provo", "Tu provas / Você prova", "Ele/Ela/A gente prova", "Nós provamos", "Vocês provam / O senhor prova / A senhora prova", "Eles/Elas provam"],
+  "habiter": ["Eu moro", "Tu moras / Você mora", "Ele/Ela/A gente mora", "Nós moramos", "Vocês moram / O senhor mora / A senhora mora", "Eles/Elas moram"],
+  "jouer": ["Eu jogo", "Tu jogas / Você joga", "Ele/Ela/A gente joga", "Nós jogamos", "Vocês jogam / O senhor joga / A senhora joga", "Eles/Elas jogam"],
+  "manger": ["Eu como", "Tu comes / Você come", "Ele/Ela/A gente come", "Nós comemos", "Vocês comem / O senhor come / A senhora come", "Eles/Elas comem"],
+  "marcher": ["Eu ando", "Tu andas / Você anda", "Ele/Ela/A gente anda", "Nós andamos", "Vocês andam / O senhor anda / A senhora anda", "Eles/Elas andam"],
+  "mélanger": ["Eu misturo", "Tu misturas / Você mistura", "Ele/Ela/A gente mistura", "Nós misturamos", "Vocês misturam / O senhor mistura / A senhora mistura", "Eles/Elas misturam"],
+  "parler": ["Eu falo", "Tu falas / Você fala", "Ele/Ela/A gente fala", "Nós falamos", "Vocês falam / O senhor fala / A senhora fala", "Eles/Elas falam"],
+  "préparer": ["Eu preparo", "Tu preparas / Você prepara", "Ele/Ela/A gente prepara", "Nós preparamos", "Vocês preparam / O senhor prepara / A senhora prepara", "Eles/Elas preparam"],
+  "regarder": ["Eu assisto", "Tu assistes / Você assiste", "Ele/Ela/A gente assiste", "Nós assistimos", "Vocês assistem / O senhor assiste / A senhora assiste", "Eles/Elas assistem"],
+  "ranger": ["Eu arrumo", "Tu arrumas / Você arruma", "Ele/Ela/A gente arruma", "Nós arrumamos", "Vocês arrumam / O senhor arruma / A senhora arruma", "Eles/Elas arrumam"],
+  "utiliser": ["Eu uso", "Tu usas / Você usa", "Ele/Ela/A gente usa", "Nós usamos", "Vocês usam / O senhor usa / A senhora usa", "Eles/Elas usam"],
+  "boire": ["Eu bebo", "Tu bebes / Você bebe", "Ele/Ela/A gente bebe", "Nós bebemos", "Vocês bebem / O senhor bebe / A senhora bebe", "Eles/Elas bebem"],
+  "courir": ["Eu corro", "Tu corres / Você corre", "Ele/Ela/A gente corre", "Nós corremos", "Vocês correm / O senhor corre / A senhora corre", "Eles/Elas correm"],
+  "dire": ["Eu digo", "Tu dizes / Você diz", "Ele/Ela/A gente diz", "Nós dizemos", "Vocês dizem / O senhor diz / A senhora diz", "Eles/Elas dizem"],
+  "écrire": ["Eu escrevo", "Tu escreves / Você escreve", "Ele/Ela/A gente escreve", "Nós escrevemos", "Vocês escrevem / O senhor escreve / A senhora escreve", "Eles/Elas escrevem"],
+  "être": ["Eu sou/estou", "Tu és/estás / Você é/está", "Ele/Ela/A gente é/está", "Nós somos/estamos", "Vocês são/estão / O senhor é/está / A senhora é/está", "Eles/Elas são/estão"],
+  "finir": ["Eu termino", "Tu terminas / Você termina", "Ele/Ela/A gente termina", "Nós terminamos", "Vocês terminam / O senhor termina / A senhora termina", "Eles/Elas terminam"],
+  "ouvrir": ["Eu abro", "Tu abres / Você abre", "Ele/Ela/A gente abre", "Nós abrimos", "Vocês abrem / O senhor abre / A senhora abre", "Eles/Elas abrem"],
+  "prendre": ["Eu pego/tomo", "Tu pegas/tomas / Você pega/toma", "Ele/Ela/A gente pega/toma", "Nós pegamos/tomamos", "Vocês pegam/tomam / O senhor pega/toma / A senhora pega/toma", "Eles/Elas pegam/tomam"],
+  "répondre": ["Eu respondo", "Tu respondes / Você responde", "Ele/Ela/A gente responde", "Nós respondemos", "Vocês respondem / O senhor responde / A senhora responde", "Eles/Elas respondem"],
+  "sourire": ["Eu sorrio", "Tu sorris / Você sorri", "Ele/Ela/A gente sorri", "Nós sorrimos", "Vocês sorriem / O senhor sorri / A senhora sorri", "Eles/Elas sorriem"],
+  "servir": ["Eu sirvo", "Tu serves / Você serve", "Ele/Ela/A gente serve", "Nós servimos", "Vocês servem / O senhor serve / A senhora serve", "Eles/Elas servem"],
+  "vendre": ["Eu vendo", "Tu vendes / Você vende", "Ele/Ela/A gente vende", "Nós vendemos", "Vocês vendem / O senhor vende / A senhora vende", "Eles/Elas vendem"],
+  "voir": ["Eu vejo", "Tu vês / Você vê", "Ele/Ela/A gente vê", "Nós vemos", "Vocês veem / O senhor vê / A senhora vê", "Eles/Elas veem"],
+  "vouloir": ["Eu quero", "Tu queres / Você quer", "Ele/Ela/A gente quer", "Nós queremos", "Vocês querem / O senhor quer / A senhora quer", "Eles/Elas querem"],
+  "se laver les mains": ["Eu lavo as mãos", "Tu lavas as mãos / Você lava as mãos", "Ele/Ela/A gente lava as mãos", "Nós lavamos as mãos", "Vocês lavam as mãos / O senhor lava as mãos / A senhora lava as mãos", "Eles/Elas lavam as mãos"],
+  "lever la main": ["Eu levanto a mão", "Tu levantas a mão / Você levanta a mão", "Ele/Ela/A gente levanta a mão", "Nós levantamos a mão", "Vocês levantam a mão / O senhor levanta a mão / A senhora levanta a mão", "Eles/Elas levantam a mão"],
+  "mettre la table": ["Eu ponho a mesa", "Tu pões a mesa / Você põe a mesa", "Ele/Ela/A gente põe a mesa", "Nós pomos a mesa", "Vocês põem a mesa / O senhor põe a mesa / A senhora põe a mesa", "Eles/Elas põem a mesa"],
+  "s'amuser": ["Eu me divirto", "Tu te divertes / Você se diverte", "Ele/Ela/A gente se diverte", "Nós nos divertimos", "Vocês se divertem / O senhor se diverte / A senhora se diverte", "Eles/Elas se divertem"],
+  "se coucher": ["Eu me deito", "Tu te deitas / Você se deita", "Ele/Ela/A gente se deita", "Nós nos deitamos", "Vocês se deitam / O senhor se deita / A senhora se deita", "Eles/Elas se deitam"]
 };
 
 // Ordena o dicionário em ordem alfabética no momento do carregamento
