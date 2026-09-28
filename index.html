@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#F7F9FA">
+<title>GALOLINGO — Dictionnaire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="page">
+  <div id="topbar">
+    <div class="topbar-row">
+      <h1 class="level-label" style="font-family: 'Feather Bold', 'Nunito', sans-serif; font-size: 20px; color: var(--laranja-escuro); margin: 0;">galolingo dictionnaire</h1>
+      <span class="score-badge" onclick="renderHome()">🏠 Início</span>
+    </div>
+    <input type="text" id="search-input" placeholder="Buscar palavra ou verbo..." autocomplete="off">
+  </div>
+  
+  <div id="alphabet-index">
+    <!-- As letras serão injetadas aqui pelo JS -->
+  </div>
+
+  <main id="content">
+    <!-- Os cards de dicionário ou tabelas de conjugação entrarão aqui -->
+  </main>
+</div>
+
+<script src="vocabulario.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
