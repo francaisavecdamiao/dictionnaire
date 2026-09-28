@@ -98,26 +98,42 @@ function renderList(list, highlightLetter = null) {
 function renderVerbConjugation(verbFr) {
   triggerPageTurn();
   const conj = conjugacoes[verbFr];
+  const conjPt = conjugacoesPt[verbFr];
   if (!conj) return;
 
   const itemInfo = dicionario.find(i => i.fr === verbFr);
   const translation = itemInfo ? itemInfo.pt : '';
 
   let rows = pronoms.map((pronom, index) => `
-    <div class="conjugation-row">
-      <span class="conj-pronoun">${pronom}</span>
-      <span class="conj-verb">${conj[index]}</span>
+    <div class="conjugation-row" onclick="toggleTranslation(this)">
+      <div class="conj-main">
+        <span class="conj-pronoun">${pronom}</span>
+        <span class="conj-verb">${conj[index]}</span>
+      </div>
+      <div class="conj-translation" style="display: none;">
+        ${conjPt ? conjPt[index] : 'Tradução indisponível'}
+      </div>
     </div>
   `).join('');
 
   contentDiv.innerHTML = `
     <div class="verb-table-container">
       <div class="verb-table-header">${verbFr}</div>
-      <p style="text-align:center; color: var(--text-light); font-weight:700; font-size:14px; margin-top:-10px; margin-bottom:15px;">${translation}</p>
+      <p style="text-align:center; color: var(--text-light); font-weight:700; font-size:14px; margin-top:-10px; margin-bottom:5px;">${translation}</p>
+      <p style="text-align:center; color: var(--laranja-salmao); font-size:11px; margin-bottom:15px; font-weight: 800; text-transform: uppercase;">(Clique na conjugação para traduzir)</p>
       ${rows}
     </div>
     <button class="verb-btn" style="width: 100%; font-size: 16px;" onclick="renderHome()">⬅ Voltar ao Dicionário</button>
   `;
+}
+
+function toggleTranslation(element) {
+  const transDiv = element.querySelector('.conj-translation');
+  if (transDiv.style.display === 'none') {
+    transDiv.style.display = 'block';
+  } else {
+    transDiv.style.display = 'none';
+  }
 }
 
 function renderHome() {
@@ -128,9 +144,8 @@ function renderHome() {
 
 function triggerPageTurn() {
   contentDiv.classList.remove('page-turn-anim');
-  void contentDiv.offsetWidth; // Reflow para reiniciar a animação CSS
+  void contentDiv.offsetWidth; 
   contentDiv.classList.add('page-turn-anim');
 }
 
-// Inicializa
 window.onload = () => { init(); };
