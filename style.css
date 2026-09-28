@@ -128,7 +128,7 @@ html, body {
 /* CONTEÚDO PRINCIPAL */
 main#content {
   flex: 1;
-  padding: 20px 38px 20px 16px; /* Espaço à direita para o índice A-Z */
+  padding: 20px 38px 20px 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -215,15 +215,49 @@ main#content {
 
 .conjugation-row {
   display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
+  flex-direction: column;
+  padding: 10px 8px;
   border-bottom: 1px solid var(--border);
-  font-size: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  -webkit-tap-highlight-color: rgba(239, 114, 17, 0.1);
 }
-.conjugation-row:last-child { border-bottom: none; }
+
+.conjugation-row:hover, .conjugation-row:active {
+  background: #FFF5EA;
+}
+
+.conjugation-row:last-child {
+  border-bottom: none;
+}
+
+.conj-main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 16px;
+}
 
 .conj-pronoun { font-weight: 800; color: var(--text-light); width: 40%; }
 .conj-verb { font-weight: 700; color: var(--text); width: 60%; text-align: right; }
+
+.conj-translation {
+  font-size: 13.5px;
+  color: var(--laranja-escuro);
+  margin-top: 6px;
+  font-weight: 700;
+  text-align: center;
+  background: #FFE9D6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  animation: fadeInDown 0.2s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 .letter-header {
   font-family: 'Feather Bold', 'Nunito', sans-serif;
